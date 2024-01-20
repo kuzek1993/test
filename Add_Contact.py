@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
-
+from contact import Contact
 class AddContact(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
@@ -17,7 +17,7 @@ class AddContact(unittest.TestCase):
         self.home_page(wd)
         self.login(wd, user_name="admin", password="secret")
         self.click_add(wd)
-        self.create_contact(wd, firts_name=u"Иванов", last_name=u"Иван")
+        self.create_contact(wd, Contact(first_name=u"Иванов", last_name=u"Иван", phone="1212"))
         self.return_homepage(wd)
         self.logout(wd)
 
@@ -26,7 +26,7 @@ class AddContact(unittest.TestCase):
         self.home_page(wd)
         self.login(wd, user_name="admin", password="secret")
         self.click_add(wd)
-        self.create_contact(wd, firts_name=u"", last_name=u"")
+        self.create_contact(wd, Contact(first_name=u"", last_name=u"", phone=""))
         self.return_homepage(wd)
         self.logout(wd)
 
@@ -38,18 +38,18 @@ class AddContact(unittest.TestCase):
         # return to homepage
         wd.find_element_by_link_text("home page").click()
 
-    def create_contact(self, wd, firts_name, last_name):
+    def create_contact(self, wd, contact):
         # add atribute
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firts_name)
+        wd.find_element_by_name("firstname").send_keys(contact.first_name)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(last_name)
+        wd.find_element_by_name("lastname").send_keys(contact.last_name)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys("1212")
+        wd.find_element_by_name("mobile").send_keys(contact.phone)
         wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
 
     def click_add(self, wd):
