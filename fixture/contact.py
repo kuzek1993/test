@@ -22,6 +22,13 @@ class ContactHelper:
         wd.find_element_by_name("mobile").send_keys(contact.phone)
         wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
 
+    def delete_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+
+
+
     def click_add(self):
         # click add new
         wd = self.app.wd
