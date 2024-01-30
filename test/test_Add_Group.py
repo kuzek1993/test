@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import time
+
 from model.group import Group
 
 
@@ -11,6 +13,8 @@ def test_add_group(app):
     app.group.creation()
     app.group.return_to_group()
     app.session.logout()
+    time.sleep(1)
+
 
 def test_add_empty_group(app):
     app.open_home_page()
@@ -21,3 +25,4 @@ def test_add_empty_group(app):
     app.group.creation()
     app.group.return_to_group()
     app.session.logout()
+    time.sleep(1)
