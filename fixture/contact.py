@@ -29,6 +29,7 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
 
 
+
     def form_contact(self, contact):
         wd = self.app.wd
         wd.find_element_by_name("firstname").click()
