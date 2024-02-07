@@ -4,6 +4,8 @@ from model.group import Group
 
 
 def test_modify_group_name(app):
+    if app.group.count() == 0:
+        app.group.create_new(Group(name="модификация"))
     app.group.change_description(Group(name="new group"))
     app.group.return_to_group()
     time.sleep(1)
