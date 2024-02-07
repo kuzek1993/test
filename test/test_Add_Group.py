@@ -7,7 +7,6 @@ from model.group import Group
 def test_add_group(app):
     app.group.create_new(Group(name="1212", header="13131", footer="1414"))
     app.group.return_to_group()
-    app.session.logout()
     time.sleep(1)
 
 
