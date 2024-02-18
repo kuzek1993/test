@@ -5,7 +5,7 @@ import time
     
 def test_add_contact(app):
     old_contact = app.contact.get_contact_list()
-    contact = Contact(first_name=u"Иванов", last_name=u"Иван", phone="1212")
+    contact = Contact(first_name=u"Иванов", last_name=u"Иван", mobilephone="1212")
     app.contact.create_contact(contact)
     new_contact = app.contact.get_contact_list()
     assert len(old_contact) + 1 == len(new_contact)
@@ -15,7 +15,7 @@ def test_add_contact(app):
 
 def test_add_contact_empty(app):
     old_contact = app.contact.get_contact_list()
-    contact = Contact(first_name=u"", last_name=u"", phone="")
+    contact = Contact(first_name=u"", last_name=u"", mobilephone="")
     app.contact.create_contact(contact)
     new_contact = app.contact.get_contact_list()
     assert len(old_contact) + 1 == len(new_contact)

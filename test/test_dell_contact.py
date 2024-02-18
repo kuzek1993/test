@@ -3,7 +3,7 @@ from model.contact import Contact
 from random import randrange
 def test_delete_contact(app):
     old_contact = app.contact.get_contact_list()
-    contact = Contact(first_name=u"Удоли", last_name=u"Меня", phone="Скорее")
+    contact = Contact(first_name=u"Удоли", last_name=u"Меня", mobilephone="Скорее")
     if app.contact.count() == 0:
         app.contact.create_contact(contact)
     index = randrange(len(old_contact))

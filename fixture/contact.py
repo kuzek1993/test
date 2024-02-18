@@ -58,7 +58,7 @@ class ContactHelper:
         wd.find_element_by_name("lastname").send_keys(contact.last_name)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.phone)
+        wd.find_element_by_name("mobile").send_keys(contact.mobilephone)
 
     def count(self):
         wd = self.app.wd
