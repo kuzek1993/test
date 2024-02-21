@@ -78,11 +78,10 @@ class ContactHelper:
                 last_name = form[2].text
                 first_name = form[1].text
                 id = form[0].find_element_by_tag_name("input").get_attribute("value")
-                all_phones = form[5].text.splitlines()
-                print("all_phones")
-                self.contact_cache.append(Contact(first_name=first_name, last_name=last_name, id=id, homephone=all_phones[0],
-                                                  mobilephone=all_phones[1],
-                                                  workphone=all_phones[2]))
+                all_phones = form[5].text
+                all_email = form[4].text
+                self.contact_cache.append(Contact(first_name=first_name, last_name=last_name, id=id, all_phones_from_home_page=all_phones,
+                                                  all_email_from_home_page=all_email))
         return list(self.contact_cache)
     def open_contact_edit_by_index(self, index):
         wd = self.app.wd
@@ -104,8 +103,11 @@ class ContactHelper:
         mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
         workphone = wd.find_element_by_name("work").get_attribute("value")
         secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
+        email1 = wd.find_element_by_name("email").get_attribute("value")
+        email2 = wd.find_element_by_name("email2").get_attribute("value")
+        email3 = wd.find_element_by_name("email3").get_attribute("value")
         return Contact(first_name=firstname, last_name=lastname, id=id, homephone=homephone,
-                       mobilephone=mobilephone, workphone=workphone)
+                       mobilephone=mobilephone, workphone=workphone, email1=email1, email2=email2, email3=email3)
 
     def get_contact_from_view_page(self, index):
         wd = self.app.wd
@@ -118,3 +120,5 @@ class ContactHelper:
                        workphone=workphone)
 
 
+    def get_email_list(self, index):
+        wd = self.app.wd
