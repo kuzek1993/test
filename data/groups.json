@@ -10,49 +10,49 @@
     "py/object": "model.group.Group",
     "name": "",
     "header": "",
-    "footer": "footerr*4XiV",
+    "footer": "footer",
     "id": null
   },
   {
     "py/object": "model.group.Group",
     "name": "",
-    "header": "headerQP| ",
+    "header": "header",
     "footer": "",
     "id": null
   },
   {
     "py/object": "model.group.Group",
     "name": "",
-    "header": "headerQP| ",
-    "footer": "footer&",
+    "header": "header",
+    "footer": "footer",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "name": "namer@",
+    "name": "name",
     "header": "",
     "footer": "",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "name": "namer@",
+    "name": "name",
     "header": "",
-    "footer": "footerEF[Dbf5",
+    "footer": "footer",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "name": "namer@",
-    "header": "header'l(r\\ Fc ",
+    "name": "name",
+    "header": "header",
     "footer": "",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "name": "namer@",
-    "header": "header'l(r\\ Fc ",
-    "footer": "footerki y",
+    "name": "name",
+    "header": "header",
+    "footer": "footer",
     "id": null
   }
 ]

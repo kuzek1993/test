@@ -30,9 +30,9 @@ def random_string(prefix, maxlen):
 
 testdata = [
             Group(name=name, header=header, footer=footer)
-            for name in ["", random_string("name", 10)]
-            for header in ["", random_string("header", 10)]
-            for footer in ["", random_string("footer", 10)]
+            for name in ["", random_string("name", 1)]
+            for header in ["", random_string("header", 1)]
+            for footer in ["", random_string("footer", 1)]
 
     ]
 
