@@ -34,6 +34,14 @@ class ContactHelper:
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         self.contact_cache = None
 
+    def add_contact_to_group(self, id):
+        wd = self.app.wd
+        self.home_page()
+        self.select_contact_by_id(id)
+        wd.find_element_by_name("add").click()
+
+
+
 
     def select_contact_by_index(self, index):
         wd = self.app.wd

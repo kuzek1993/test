@@ -39,6 +39,15 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
+    def select_group_by_ui(self, id):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+        wd.find_element_by_name("to_group").click()
+        wd.find_element_by_xpath("//div[@id]/form[2]/div[4]/select/option").click()
+
+
+
+
     def open_group_page(self):
         wd = self.app.wd
         if not (wd.current_url.endswith("/group.php") and len(wd.find_elements_by_name("new")) > 0):
