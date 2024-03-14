@@ -40,6 +40,13 @@ class ContactHelper:
         self.select_contact_by_id(id)
         wd.find_element_by_name("add").click()
 
+    def delete_contact_to_group(self, id):
+        wd = self.app.wd
+        self.select_contact_by_id(id)
+        wd.find_element_by_name("remove").click()
+
+
+
 
 
 

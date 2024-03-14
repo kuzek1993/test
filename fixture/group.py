@@ -45,6 +45,12 @@ class GroupHelper:
         wd.find_element_by_name("to_group").click()
         wd.find_element_by_xpath("//div[@id]/form[2]/div[4]/select/option").click()
 
+    def select_group_by_contact(self, id):
+
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+        wd.find_element_by_name("group").click()
+        wd.find_element_by_xpath("//option[@value='%s']" % id).click()
 
 
 
