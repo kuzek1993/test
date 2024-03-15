@@ -5,16 +5,19 @@ from model.contact import Contact
 def test_attribute_on_homepage(app, db):
 
 
-    attribute_ui_from_homepage = app.contact.get_contact_list()
+    attribute_ui_from_homepage = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
     def clean(contact):
         return Contact(id=contact.id, first_name=contact.first_name, last_name=contact.last_name, mobilephone=contact.mobilephone, email1=contact.email1,
                        email2=contact.email2, email3=contact.email3, adress=contact.adress, homephone=contact.homephone, workphone=contact.workphone)
-    attribute_from_db = map(clean, db.get_contact_list())
-    assert sorted(attribute_ui_from_homepage, key=Contact.id_or_max) == sorted(attribute_from_db, key=Contact.id_or_max)
-    #assert attribute_ui_from_homepage.all_phones_from_home_page == attribute_from_db
-    #assert attribute_ui_from_homepage.first_name == attribute_from_db
-    #assert attribute_ui_from_homepage.last_name == attribute_from_db
-    #assert attribute_ui_from_homepage.adress == attribute_from_db
+    attribute_from_db = sorted(map(clean, db.get_contact_list()), key=Contact.id_or_max)
+    for i in range(0, len(attribute_ui_from_homepage)):
+        assert attribute_ui_from_homepage[i].first_name == attribute_from_db[i].first_name
+        assert attribute_ui_from_homepage[i].last_name == attribute_from_db[i].last_name
+        assert attribute_ui_from_homepage[i].all_phones_from_home_page == merge_phones_on_homepage(attribute_from_db[i])
+        assert attribute_ui_from_homepage[i].all_email_from_home_page == merge_email_on_homepage(attribute_from_db[i])
+        assert attribute_ui_from_homepage[i].adress == attribute_from_db[i].adress
+
+
 
 def clear(s):
     return re.sub("[() -]", "", s)
