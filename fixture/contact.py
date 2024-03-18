@@ -1,5 +1,6 @@
 
 from model.contact import Contact
+import time
 import re
 
 class ContactHelper:
@@ -38,11 +39,13 @@ class ContactHelper:
         wd = self.app.wd
         self.home_page()
         self.select_contact_by_id(id)
+        time.sleep(1)
         wd.find_element_by_name("add").click()
 
     def delete_contact_to_group(self, id):
         wd = self.app.wd
         self.select_contact_by_id(id)
+        time.sleep(1)
         wd.find_element_by_name("remove").click()
 
 
